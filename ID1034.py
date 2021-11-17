@@ -20,4 +20,4 @@ while(1):
     if ((len(prime_num_list) == 2) or (input_num == 2)):
         break
 
-print(prime_num_list[::-1])
+print(prime_num_list[::-1])  
