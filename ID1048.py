@@ -1,18 +1,19 @@
 #!/usr/bin/python3
 import math
 
-def f(x): 
-    if x == 1: return 0 
-    global cnt 
-    s = int(math.sqrt(x))
-    for i in range(2, s + 1): 
-        cnt += 1 
-        if x % i == 0: return 1 
-    return 2
+def f(x):
+    global cnt
+    for i in range(3,x):
+        sum_flag = cnt[-1]
+        s = int(math.sqrt(i + 1))
+        for j in range(2, s + 1):
+            sum_flag += 1
+            if (i+1) % j == 0:
+                break
+        cnt.append(sum_flag)
 
 
-
-result = []
+cnt = [0, 0, 0]
 input_list = []
 try:
     while(1):
@@ -21,5 +22,4 @@ except EOFError:
     pass
 f(max(input_list))
 for i in input_list:
-    print(result[input_list[i]])
-
+    print(cnt[i - 1])
